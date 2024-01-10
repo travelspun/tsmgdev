@@ -13,13 +13,13 @@
                     icon="mdi-arrow-left-bold-box"
                     @click="model = Math.max(model - 1, 0)"
                 /> 
-                {{model}}
-                {{columns}}
+                <!-- {{model}}
+                {{columns}} -->
                 <v-icon 
                     color="red" 
                     size='75px' 
                     icon="mdi-arrow-right-bold-box"  
-                    @click="model = Math.min(model + 1, columns -1)"/> 
+                    @click="model = Math.min(model + 1, columns)"/> 
             </div>
         </v-sheet>
       </v-col>
@@ -35,13 +35,39 @@
           <v-carousel-item v-if="(index + 1) % columns === 1 || columns === 1" 
                            :key="index"
           > 
+            <v-row class="flex-nowrap" style="height:100%"> 
+              <template v-for="(n,i) in columns"> 
+                <template v-if="(+index + i) < slider.length"> 
+                  <v-col :key="i"> 
+                    <v-sheet v-if="(+index + i) < eventList.length" 
+                             height="100%"
+                    >
+                      <v-row class="fill-height"
+                             align="center"
+                             justify="center"
+                      >
+                        <EventCard :event="eventList[+index + i]"/>
+                      </v-row>
+                    </v-sheet>
+                  </v-col> 
+                </template> 
+              </template> 
+            </v-row> 
+          </v-carousel-item> 
+        </template> 
+
+
+<!--         
+        <template v-for="(item, index) in eventList"> 
+          <v-carousel-item v-if="(index + 1) % columns === 1 || columns === 1" 
+                           :key="index"
+          > 
             <v-row class="flex-nowrap"> 
               <template v-for="(n,i) in columns"> 
                 <template v-if="(+index + i) < eventList.length"> 
                   <v-col :key="i"> 
                     <v-sheet v-if="(+index + i) < eventList.length" >
-                    <!-- :color="slider[+index + i]"
-                             height="100%" -->
+                    
                       <v-row class="fill-height"
                              align="center"
                              justify="center"
@@ -54,7 +80,7 @@
               </template> 
             </v-row> 
           </v-carousel-item> 
-        </template> 
+        </template>  -->
       </v-carousel>  
       </v-col>
     </v-row>
@@ -110,15 +136,7 @@ const slider = ref([
     "red", 
     "green", 
     "orange", 
-    "blue", 
-    "pink", 
-    "purple", 
-    "indigo", 
-    "cyan", 
-    "deep-purple", 
-    "light-green", 
-    "deep-orange", 
-    "blue-grey"
+    "blue"
 ])
 
 </script>
