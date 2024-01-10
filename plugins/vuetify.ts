@@ -8,7 +8,7 @@ import '@/assets/main.scss'
 
 export default defineNuxtPlugin((nuxtApp) => {
 	const Vuetify = createVuetify({
-		ssr: true,
+		ssr: false,
 		theme: {
 			defaultTheme: 'customTheme',
 			themes: {
