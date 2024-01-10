@@ -1,0 +1,16 @@
+/* main.scss */
+@use 'vuetify/lib/styles/main.sass' with (
+    $body-font-family: 'Varela Round'
+);
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+
+// @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+// @font-face {
+//     font-family: 'Varela Round';
+//     font-style: normal;
+//     font-weight: 300;
+//     font-display: swap;
+//     src: local('Varela Round'), local('VarelaRound-Regular'), url(VarelaRound-Regular.ttf) format('truetype');
+//     // src: url('VarelaRound-Regular.ttf') format('truetype');
+// }

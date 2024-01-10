@@ -1,0 +1,7 @@
+// /assets/settings.scss
+// Specific Vuetify settings
+@use 'vuetify/settings' with (
+    $utilities: false,
+    $button-height: 40px,
+    $body-font-family: 'Varela Round'
+);
