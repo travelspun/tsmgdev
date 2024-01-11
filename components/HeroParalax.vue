@@ -6,7 +6,7 @@
     >
         <div class="d-flex flex-column fill-height justify-center 
             align-center text-white">
-            <h1 class="text-h4 font-weight-bold mb-4  py-10">
+            <h1 class="text-h4 font-weight-black mb-4  py-10">
                 Producers of the #1 Travel Industry Trade Events
             </h1>
             <h4 class="subheading">
