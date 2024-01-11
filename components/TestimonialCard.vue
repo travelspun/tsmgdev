@@ -3,7 +3,7 @@
         <v-row align="center" justify="center">
         <v-col cols="auto">
             <v-card
-            color="indigo-darken-3"
+            color="tertiary"
             class="mx-auto"
             max-width="344"
             title="Bob Barker"

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { onMounted, watch } from 'vue';
 
-const color = 'primary';
+const color = '#ffffff';
 const flat = false;
 let isXs = ref(false);
 const drawer = ref(false);

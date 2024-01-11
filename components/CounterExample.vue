@@ -8,6 +8,7 @@ const counter = computed(() => counterStore.counter);
 const incrementCount = () => counterStore.counter++;
 const decrementCount = () => counterStore.counter--;
 
+
 const resetCount = counterStore.$reset.bind(counterStore);
 </script>
 

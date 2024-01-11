@@ -3,17 +3,17 @@
 const hover = ref(false);
  const features = ref([
     {
-        img: "/img/icon2.svg",
+        img: "/img/Travel-Suppliers.png",
         title: "Travel Suppliers",
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     },
     {
-        img:  "/img/icon1.svg",
+        img:  "/img/Travel-Advisors.png",
         title: "Travel Advisors",
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     },
     {
-        img: "/img/icon3.svg",
+        img: "/img/Tools-to-Succeed.png",
         title: "Tools to Succeed",
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     },
@@ -37,13 +37,13 @@ const hover = ref(false);
                 <v-card
                   class="card"
                   shaped
-                  :elevation="isHovering ? 12 : 2"
+                  :elevation="isHovering ? 12 : 0"
                   :class="{ 'on-hover': isHovering }"
                   v-bind="props"
                 >
                   <v-img
                     :src="feature.img"
-                    max-width="75px"
+                    max-width="50px"
                     class="d-block ml-auto mr-auto"
                     :class="{ 'zoom-efect': hover }"
                   ></v-img>
