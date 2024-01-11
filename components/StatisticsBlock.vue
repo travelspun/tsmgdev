@@ -32,17 +32,29 @@
           >
         <v-col class='text-align-center'>
           <v-sheet class="pa-2 ma-2 bg-primary">
-            <StatCounter :countTo='12' :textLabel="'YEARS IN BUSINESS'"/>
+            <StatCounter 
+              :countTo='12' 
+              :textLabel="'YEARS IN BUSINESS'"
+              :countSpeed='1'
+            />
           </v-sheet>
         </v-col>
         <v-col  class='text-align-center'>
           <v-sheet class="pa-2 ma-2 bg-primary">
-            <StatCounter :countTo='41' :textLabel="'EVENTS PRODUCED'"/>
+            <StatCounter 
+              :countTo='41' 
+              :textLabel="'EVENTS PRODUCED'"
+              :countSpeed='1'
+            />
           </v-sheet>
         </v-col>
         <v-col  class='text-align-center'>
           <v-sheet class="pa-2 ma-2 bg-primary">
-            <StatCounter :countTo='231793' :textLabel="'UNIQUE CONNECTIONS'"/>
+            <StatCounter 
+              :countTo='231793' 
+              :textLabel="'UNIQUE CONNECTIONS'"
+              :countSpeed='100'
+            />
           </v-sheet>
         </v-col>
           

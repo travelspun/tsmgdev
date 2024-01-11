@@ -77,7 +77,10 @@ onMounted(() => {
         v-if="isXs"
       />
       <div v-else>
-        <v-btn text @click="$vuetify.goTo('#hero')">
+        <v-btn 
+          color='primary' 
+          text @click="$vuetify.goTo('#hero')"
+        >
           <span class="mr-2">Events</span>
         </v-btn>
         
@@ -86,6 +89,7 @@ onMounted(() => {
           >
             <template v-slot:activator="{ props }">
               <v-btn
+                color='primary'
                 v-bind="props"
               >
               Why TravelSMG
@@ -106,9 +110,14 @@ onMounted(() => {
             </v-list>
           </v-menu>
         
-        <v-btn rounded text @click="$vuetify.goTo('#download')">
-          <span class="mr-2">About</span>
-        </v-btn>
+            <v-btn 
+                rounded 
+                text 
+                color='primary'
+                @click="$vuetify.goTo('#download')">
+              <span class="mr-2">About</span>
+            </v-btn>
+
       </div>
     </v-app-bar>
 </template>
