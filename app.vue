@@ -6,9 +6,12 @@ const {
 </script>
 
 <template>
+	 <!-- <v-content>
+      <router-view></router-view>
+    </v-content> -->
 	<NuxtLayout>
 		<div
-			class="v-theme--customTheme d-flex flex-column justify-center align-center mt-5"
+			class="d-flex flex-column justify-center align-center"
 		>
 			<NuxtPage />
 
