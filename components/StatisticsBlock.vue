@@ -1,5 +1,4 @@
-<script setup>
-
+<script lang='ts' setup>
 </script>
 <template>
     <v-container
@@ -18,7 +17,8 @@
         >
           <v-col class='text-align-center'>
             <v-sheet class="pa-2 ma-2 bg-primary">
-              <p><h1>Producers of the #1 Travel Industry Events</h1></p>
+              <p></p>
+                <h1>Producers of the #1 Travel Industry Events</h1>
               <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.
