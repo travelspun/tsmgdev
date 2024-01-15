@@ -1,5 +1,5 @@
-
 <script lang="ts" setup>
+
 const hover = ref(false);
  const features = ref([
     {
@@ -22,16 +22,16 @@ const hover = ref(false);
 </script>
 
 <template>
-    <v-container fluid id="features" class="mt-2">
+    <v-container id="features" fluid class="mt-2">
       <v-row align="center" justify="center">
         <v-col cols="10">
           <v-row align="center" justify="space-around">
             <v-col
+            v-for="(feature, i) in features"
+              :key="i"
               cols="12"
               sm="4"
               class="text-center"
-              v-for="(feature, i) in features"
-              :key="i"
             >
             <v-hover v-slot="{ isHovering, props }">
                 <v-card

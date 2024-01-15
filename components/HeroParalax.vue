@@ -4,7 +4,8 @@
         style="padding:0px !important;margin:0px !important;"
         src="/img/vegas_strip_night_d81b9f10b7.jpg"
     >
-        <div align='center' class="d-flex flex-column 
+        <div 
+           align='center' class="d-flex flex-column 
                 fill-height justify-center 
                 align-center text-white">
             <h1 class="text-h4 font-weight-black mb-4  py-10 align-center justify-center">
@@ -36,5 +37,5 @@
 </style>
 
 <script lang='ts' setup>
-  const scrollTo = () =>  document.getElementById("about").scrollIntoView({behavior: 'smooth'});
+const scrollTo = () =>  document.getElementById("about").scrollIntoView({behavior: 'smooth'});
 </script>

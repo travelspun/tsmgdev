@@ -1,6 +1,6 @@
 
 <script lang="ts" setup>
-import { reactive, computed, watch } from 'vue'
+import {  watch } from 'vue'
 import { useDisplay } from 'vuetify'
 
 // Destructure only the keys you want to use
@@ -69,12 +69,6 @@ const eventList = ref([
         },
         
     ])
-const slider = ref([
-    "red", 
-    "green", 
-    "orange", 
-    "blue"
-])
 
 </script>
 

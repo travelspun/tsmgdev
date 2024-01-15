@@ -3,7 +3,7 @@ import { onMounted, watch } from 'vue';
 
 const color = '#ffffff';
 const flat = false;
-let isXs = ref(false);
+const isXs = ref(false);
 const drawer = ref(false);
 
 const navItems = [
@@ -28,12 +28,12 @@ const navItems = [
 ];
 
 
-const onResize = () => {  isXs = window.innerWidth < 850; }
+const onResize = () => {  isXs.value = window.innerWidth < 850; }
 
 watch(isXs, (value) => {
   if (!value) {
-      if (this.drawer) {
-        this.drawer = false;
+      if (drawer) {
+        drawer.value = false;
       }
     }
 });
@@ -46,6 +46,16 @@ onMounted(() => {
 </script>
 
 <template>
+    
+
+    <v-app-bar
+      app
+      :color="color"
+      :flat="flat"
+      dark
+      class="px-15"
+      :class="{ expand: flat }"
+    >
     <v-navigation-drawer
       v-model="drawer"
       app
@@ -67,8 +77,8 @@ onMounted(() => {
           text @click="$vuetify.goTo(link)"> -->
             <span class="mr-2">{{nav.text}}</span>
             <v-list-item
+            v-for="(sub, i) in nav.subNav"
               v-if="nav.subNav"
-              v-for="(sub, i) in nav.subNav"
               :key="i"
               link
               @click="$vuetify.goTo(sub.link)"
@@ -80,16 +90,6 @@ onMounted(() => {
       </v-list>
     </v-navigation-drawer>
     
-
-    <v-app-bar
-      app
-      :color="color"
-      :flat="flat"
-      dark
-      class="px-15"
-      :class="{ expand: flat }"
-    >
-
     <v-app-bar-nav-icon @click="drawer = true" 
       class="d-flex d-sm-none" 
     ></v-app-bar-nav-icon>
