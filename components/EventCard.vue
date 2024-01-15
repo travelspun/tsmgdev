@@ -1,12 +1,12 @@
 <template>
+
     <v-card
       class="mx-auto"
-      max-width="344"
+      width='250'
     >
       <v-img
         :src="event.img"
-        height="200px"
-        cover
+       
       ></v-img>
       <v-card-title>
         {{event.name}}

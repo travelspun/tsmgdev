@@ -18,7 +18,7 @@ watch(md, (val) => {
   columns.value = val ? 2 : 2;
 },{immediate:true});
 watch(lg, (val) => {
-  columns.value = val ? 2 : 2;
+  columns.value = val ? 3 : 3;
 },{immediate:true});
 watch(xl, (val) => {
   columns.value = val ? 2 : 2;
@@ -30,22 +30,44 @@ const eventList = ref([
             dates: "March 24 - 27, 2024",
             location: "Las Vegas, Nevada",
             property: "Paris Las Vegas Hotel Casino & Resort",
-            img: "/img/vegas_strip_night_d81b9f10b7.jpg"
+            img: "/img/LVTAF_Home_600x338.png"
         },
         {
             name: "Romance Travel Forum",
             dates: "May 6th - 9th, 2024",
             location: "Costa Mujeres, Mexico",
             property: "Secrets Playa Blanca",
-            img: "/img/Slide4_0fed350bee.jpg"
+            img: "/img/RTF_Home_600x338.png"
         },
         {
             name: "European Travel Forum",
             dates: "October 21st – 24th, 2024",
             location: "Terceira Island The Azores, Portugal",
             property: "IHG Platinum",
-            img: "/img/Slider1_1894x811_67e7cf9fe6.png"
+            img: "/img/ETAF_Home_600x338.png"
         },
+        {
+            name: "Owners Travel Forum",
+            dates: "October 21st – 24th, 2024",
+            location: "Terceira Island The Azores, Portugal",
+            property: "IHG Platinum",
+            img: "/img/TAOF_Home_600x338.png"
+        },
+        {
+            name: "Family Travel Forum",
+            dates: "May 6th - 9th, 2024",
+            location: "Costa Mujeres, Mexico",
+            property: "Secrets Playa Blanca",
+            img: "/img/FTAF_Home_600x338.png"
+        },
+        {
+            name: "Amazing Destination Experience",
+            dates: "May 6th - 9th, 2024",
+            location: "Costa Mujeres, Mexico",
+            property: "Secrets Playa Blanca",
+            img: "/img/ADE_Home_600x338.png"
+        },
+        
     ])
 const slider = ref([
     "red", 
@@ -58,43 +80,33 @@ const slider = ref([
 
 
 <template>
-<v-container>
+  <v-container>
   <!-- {{xs}},  {{ sm }} ,<br>
    {{xl}}, {{lg}}, {{md}},
   Colls
   {{ columns }} -->
-    <v-row no-gutters>
+    <v-row no-gutters  cols='2'>
       <v-col 
         align-self="center"
-        cols='2'
+        max-width='150px'
       >
+      <h2>Current Event Schedule</h2>
         <v-sheet class="ma-2 pa-2 text-h6">
-          <div class="d-flex justify-space-around align-center py-4 px-50">
+          <div class="d-flex align-center py-4 px-10">
               <v-img
                     src="/img/Arrow-Left.png"
-                    max-width="75px"
-                    class="d-block ml-auto mr-auto"
+                    class='mr-10'
+                    max-width="50px"
+                    width="50"
                     @click="model = Math.max(model - 1, 0)"
                   ></v-img>
-                <!-- <v-icon 
-                    color="red" 
-                    size='75px' 
-                    icon="mdi-arrow-left-bold-box"
-                    @click="model = Math.max(model - 1, 0)"
-                />  -->
-                <!-- {{model}}
-                {{columns}} -->
+              
                 <v-img
                     src="/img/Arrow-Right.png"
-                    max-width="75px"
-                    class="d-block ml-auto mr-auto"
+                    width="50"
+                    max-width="50px"
                     @click="model = Math.min(model + 1, columns)"
                   ></v-img>
-                <!-- <v-icon 
-                    color="red" 
-                    size='75px' 
-                    icon="mdi-arrow-right-bold-box"  
-                    @click="model = Math.min(model + 1, columns)"/>  -->
             </div>
         </v-sheet>
       </v-col>
@@ -104,60 +116,28 @@ const slider = ref([
             v-model="model" 
             :show-arrows="false"
             hide-delimiters
-            height='350'
+            height="300"
         > 
         <template v-for="(item, index) in eventList"> 
-          <v-carousel-item v-if="(index + 1) % columns === 1 || columns === 1" 
-                           :key="index"
+          <v-carousel-item 
+              v-if="(index + 1) % columns === 1 || columns === 1" 
+              :key="index"
           > 
-            <v-row class="flex-nowrap" style="height:100%"> 
+            <v-row class="flex-nowrap "> 
               <template v-for="(n,i) in columns"> 
                 <template v-if="(+index + i) < eventList.length"> 
                   <v-col :key="i"> 
-                    <v-sheet v-if="(+index + i) < eventList.length" 
-                             height="100%"
-                    >
-                      <v-row class="fill-height"
-                             align="center"
-                             justify="center"
-                      >
+                    <v-sheet v-if="(+index + i) < eventList.length">
                         <EventCard :event="eventList[+index + i]"/>
-                      </v-row>
                     </v-sheet>
                   </v-col> 
                 </template> 
               </template> 
-            </v-row> 
+            </v-row>
           </v-carousel-item> 
         </template> 
-
-
-<!--         
-        <template v-for="(item, index) in eventList"> 
-          <v-carousel-item v-if="(index + 1) % columns === 1 || columns === 1" 
-                           :key="index"
-          > 
-            <v-row class="flex-nowrap"> 
-              <template v-for="(n,i) in columns"> 
-                <template v-if="(+index + i) < eventList.length"> 
-                  <v-col :key="i"> 
-                    <v-sheet v-if="(+index + i) < eventList.length" >
-                    
-                      <v-row class="fill-height"
-                             align="center"
-                             justify="center"
-                      >
-                      <EventCard :event="eventList[+index + i]"/>
-                      </v-row>
-                    </v-sheet>
-                  </v-col> 
-                </template>
-              </template> 
-            </v-row> 
-          </v-carousel-item> 
-        </template>  -->
       </v-carousel>  
       </v-col>
     </v-row>
-    </v-container>
-  </template>
+  </v-container>
+</template>

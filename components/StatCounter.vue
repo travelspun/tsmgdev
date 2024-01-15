@@ -24,7 +24,7 @@ setInterval(() => {
 }, 10);
 </script>
 <template>
-    <div class="">
+    <div class="bg-primary">
         <p class="flex justify-center">
             <span class="text-h3 text-white font-weight-bold">{{ counter.toLocaleString('en-US') }}</span><br>
             <span class="ucase text-white font-weight-bold"> {{ textLabel }} </span>

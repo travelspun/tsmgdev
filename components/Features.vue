@@ -5,17 +5,17 @@ const hover = ref(false);
     {
         img: "/img/Travel-Suppliers.png",
         title: "Travel Suppliers",
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     },
     {
         img:  "/img/Travel-Advisors.png",
-        title: "Travel Advisors",
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        title: "Travel Agents",
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     },
     {
         img: "/img/Tools-to-Succeed.png",
         title: "Tools to Succeed",
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     },
 ])
 

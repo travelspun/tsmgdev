@@ -6,17 +6,27 @@ const flat = false;
 let isXs = ref(false);
 const drawer = ref(false);
 
-const items =  [
-      ["mdi-home-outline", "Home", "#hero"],
-      ["mdi-information-outline", "Sobre", "#features"],
-      ["mdi-download-box-outline", "Download", "#download"],
-      ["mdi-currency-usd", "Preços", "#pricing"],
-      ["mdi-email-outline", "Contatos", "#contact"],
+const navItems = [
+  {
+    text: 'Events',
+    link: '#events'
+  },
+  {
+    text: 'Why TravelSMG',
+    link: '#why',
+    subNav: [
+      {
+        text: 'Press/Blog',
+        link: '#press'
+      }
     ]
-  
-   const subItems = ref([
-        { title: 'Press/Blog' }
-      ]);
+  },
+  {
+    text: 'About',
+    link: '#about'
+  }
+];
+
 
 const onResize = () => {  isXs = window.innerWidth < 850; }
 
@@ -43,21 +53,33 @@ onMounted(() => {
       dark
       src="/img/bgDrawer.jpg"
     >
-
       <v-divider />
-
+      <v-img src="/img/tsmglogo.png" max-width="276px" />
       <v-list dense>
         <v-list-item
-          v-for="([icon, text, link], i) in items"
+          v-for="(nav, i) in navItems"
           :key="i"
           link
-          @click="$vuetify.goTo(link)"
+          @click="$vuetify.goTo(nav.link)"
         >
-            <v-icon>{{ icon }}</v-icon>
-         
+        <!-- <v-icon>{{ icon }}</v-icon> -->
+        <!-- <v-btn 
+          text @click="$vuetify.goTo(link)"> -->
+            <span class="mr-2">{{nav.text}}</span>
+            <v-list-item
+              v-if="nav.subNav"
+              v-for="(sub, i) in nav.subNav"
+              :key="i"
+              link
+              @click="$vuetify.goTo(sub.link)"
+            >
+              <span class="mr-2">{{sub.text}}</span>
+            </v-list-item>
+          <!-- </v-btn> -->
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
+    
 
     <v-app-bar
       app
@@ -67,17 +89,65 @@ onMounted(() => {
       class="px-15"
       :class="{ expand: flat }"
     >
-      <v-toolbar-title>
+
+    <v-app-bar-nav-icon @click="drawer = true" 
+      class="d-flex d-sm-none" 
+    ></v-app-bar-nav-icon>
+
+      <v-app-bar-title>
         <v-img src="/img/tsmglogo.png" max-width="276px" />
-      </v-toolbar-title>
+      </v-app-bar-title>
       <v-spacer />
-      <v-app-bar-nav-icon
-        @click.stop="drawer = !drawer"
-        class="mr-4"
-        v-if="isXs"
-      />
-      <div v-else>
-        <v-btn 
+      
+      <div 
+        class='d-none d-sm-flex'>
+      
+        <div 
+          v-for="(nav, i) in navItems"
+          :key="i"
+        >
+          <v-btn 
+              v-if="!nav.subNav"
+              flat 
+              @click="$vuetify.goTo(nav.link)"
+              color='primary' 
+            > 
+            <span class="mr-2">{{nav.text}}</span>
+          </v-btn>
+
+          <v-menu
+            v-else
+            open-on-hover
+          >
+            <template v-slot:activator="{ props }">
+              <v-btn 
+                v-bind="props"
+                text @click="$vuetify.goTo(nav.link)"
+                color='primary' 
+              > 
+                <span class="mr-2">{{nav.text}}</span>
+              </v-btn>
+            </template>
+
+            <v-list>
+              <v-list-item
+                v-for="(sItem, index) in subNav"
+                :key="index"
+              >
+                <v-list-item-title>
+                  <v-btn text @click="$vuetify.goTo('#features')">
+                    <span class="mr-2">{{sItem.title}}</span>
+                  </v-btn>
+                </v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+        </div>
+
+
+<!--  -->
+
+        <!-- <v-btn 
           color='primary' 
           text @click="$vuetify.goTo('#hero')"
         >
@@ -110,20 +180,19 @@ onMounted(() => {
             </v-list>
           </v-menu>
         
-            <v-btn 
-                rounded 
+            <v-btn  
                 text 
                 color='primary'
                 @click="$vuetify.goTo('#download')">
               <span class="mr-2">About</span>
-            </v-btn>
+            </v-btn> -->
 
       </div>
     </v-app-bar>
 </template>
 
 <style scoped>
-.v-toolbar {
+.v-app-bar-title {
   transition: 0.6s;
 }
 

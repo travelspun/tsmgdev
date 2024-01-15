@@ -28,7 +28,7 @@
             <template v-for="(event, index) in eventList"> 
               <v-carousel-item v-if="(index + 1) % columns === 1 || columns === 1" 
                                :key="index"
-              > aa {{ event }}
+              > 
                 <v-row class="flex-nowrap" style="height:100%"> 
                     
                   <template v-for="(n,i) in columns"> 
@@ -47,7 +47,7 @@
           </v-col>
         </v-row>
         </v-container>
-      </template>event[i]
+      </template>
     
     <script lang="ts" setup>
     import { reactive, computed, watch } from 'vue'
