@@ -46,16 +46,7 @@ onMounted(() => {
 </script>
 
 <template>
-    
-
-    <v-app-bar
-      app
-      :color="color"
-      :flat="flat"
-      dark
-      class="px-15"
-      :class="{ expand: flat }"
-    >
+  <div>
     <v-navigation-drawer
       v-model="drawer"
       app
@@ -90,6 +81,16 @@ onMounted(() => {
       </v-list>
     </v-navigation-drawer>
     
+
+    <v-app-bar
+      app
+      :color="color"
+      :flat="flat"
+      dark
+      class="px-15"
+      :class="{ expand: flat }"
+    >
+
     <v-app-bar-nav-icon @click="drawer = true" 
       class="d-flex d-sm-none" 
     ></v-app-bar-nav-icon>
@@ -189,6 +190,7 @@ onMounted(() => {
 
       </div>
     </v-app-bar>
+  </div>
 </template>
 
 <style scoped>
