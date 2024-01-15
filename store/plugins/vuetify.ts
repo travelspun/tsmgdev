@@ -18,6 +18,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 						primary: '#005b90',
 						secondary: '#70adcc',
 						tertiary: '#5F5F5F'
+						
 					},
 				},
 			},
