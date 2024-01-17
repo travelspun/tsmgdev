@@ -14,14 +14,6 @@ const {
 			class="d-flex flex-column justify-center align-center"
 		>
 			<NuxtPage />
-
-			<NuxtLink
-				v-if="Route.path !== baseUrl"
-				:to="baseUrl"
-				class="text-h6 text-primary mt-3"
-			>
-				Return Home
-			</NuxtLink>
 		</div>
 	</NuxtLayout>
 </template>
