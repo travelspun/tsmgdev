@@ -2,7 +2,7 @@
 	<v-app app>
     <TestTopNav />
 				<transition name="layout" mode='out-in'>
-				  <slot><router-view></router-view></slot>
+				  <slot ><router-view ></router-view></slot>
 				</transition>
 		<FooterTest />
 	</v-app>
