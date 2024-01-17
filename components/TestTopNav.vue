@@ -9,21 +9,21 @@ const drawer = ref(false);
 const navItems = [
   {
     text: 'Events',
-    link: '#events'
+    link: '/events'
   },
   {
     text: 'Why TravelSMG',
-    link: '#why',
+    link: '/why',
     subNav: [
       {
         text: 'Press/Blog',
-        link: '#press'
+        link: '/press'
       }
     ]
   },
   {
     text: 'About',
-    link: '#about'
+    link: '/about'
   }
 ];
 
@@ -61,20 +61,26 @@ onMounted(() => {
           v-for="(nav, i) in navItems"
           :key="i"
           link
-          @click="$vuetify.goTo(nav.link)"
         >
         <!-- <v-icon>{{ icon }}</v-icon> -->
-        <!-- <v-btn 
-          text @click="$vuetify.goTo(link)"> -->
+        <nuxt-link :to="nav.link">
+          <v-btn flat >
             <span class="mr-2">{{nav.text}}</span>
+          </v-btn>
+        </nuxt-link>
+       
             <v-list-item
             v-for="(sub, i) in nav.subNav"
               v-if="nav.subNav"
               :key="i"
-              link
-              @click="$vuetify.goTo(sub.link)"
             >
+            <nuxt-link :to="sub.link" class='pl-2'>
+              <v-btn 
+                flat 
+              > 
               <span class="mr-2">{{sub.text}}</span>
+              </v-btn>
+            </nuxt-link>
             </v-list-item>
           <!-- </v-btn> -->
         </v-list-item>
@@ -86,13 +92,13 @@ onMounted(() => {
       app
       :color="color"
       :flat="flat"
-      dark
       class="px-15"
       :class="{ expand: flat }"
     >
-
-    <v-app-bar-nav-icon @click="drawer = true" 
-      class="d-flex d-sm-none" 
+   
+    <v-app-bar-nav-icon 
+    class="d-flex d-sm-none" 
+      @click="drawer = true" 
     ></v-app-bar-nav-icon>
 
       <v-app-bar-title>
@@ -107,40 +113,62 @@ onMounted(() => {
           v-for="(nav, i) in navItems"
           :key="i"
         >
-          <v-btn 
+          <nuxt-link :to="nav.link"  v-if="!nav.subNav"> 
+            <v-btn 
+                v-if="!nav.subNav"
+                flat 
+                @click="$vuetify.goTo(nav.link)"
+                color='primary' 
+              > 
+              <span class="mr-2">{{nav.text}}</span>
+            </v-btn>
+          </nuxt-link>
+          <!-- <v-btn 
               v-if="!nav.subNav"
               flat 
               @click="$vuetify.goTo(nav.link)"
               color='primary' 
             > 
             <span class="mr-2">{{nav.text}}</span>
-          </v-btn>
+          </v-btn> -->
 
           <v-menu
             v-else
             open-on-hover
           >
             <template v-slot:activator="{ props }">
+               <nuxt-link :to="nav.link">
+                  <v-btn 
+                  v-bind="props"
+                  text @click="$vuetify.goTo(nav.link)"
+                  color='primary' 
+                  > 
+                    <span class="mr-2">{{nav.text}}</span>
+                  </v-btn>
+              </nuxt-link>
+<!-- 
               <v-btn 
                 v-bind="props"
                 text @click="$vuetify.goTo(nav.link)"
                 color='primary' 
               > 
                 <span class="mr-2">{{nav.text}}</span>
-              </v-btn>
+              </v-btn> -->
             </template>
 
             <v-list>
-              <v-list-item
-                v-for="(sItem, index) in subNav"
-                :key="index"
-              >
-                <v-list-item-title>
-                  <v-btn text @click="$vuetify.goTo('#features')">
-                    <span class="mr-2">{{sItem.title}}</span>
-                  </v-btn>
-                </v-list-item-title>
-              </v-list-item>
+              <template v-for="(sItem, index) in nav.subNav">
+                <v-list-item  >
+                  <nuxt-link :to="sItem.link">
+                      <v-btn 
+                      v-bind="props"
+                      > 
+                        <span class="mr-2">{{sItem.text}}</span>
+                      </v-btn>
+                  </nuxt-link>  
+                </v-list-item>
+              </template>
+              
             </v-list>
           </v-menu>
         </div>

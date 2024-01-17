@@ -33,15 +33,24 @@
         </v-card-text>
 
         <v-card-text class="text-white pt-0">
-            <v-btn color='transparent' elevation='0' text @click="$vuetify.goTo('#hero')">
-                <span class="mr-2 text-primary">Events</span>
-            </v-btn> 
-            <v-btn color='transparent' elevation='0' text @click="$vuetify.goTo('#hero')">
-                <span class="mr-2 text-primary">Why TravelSMG</span>
-            </v-btn>
-            <v-btn color='transparent' elevation='0' text @click="$vuetify.goTo('#hero')">
-                <span class="mr-2 text-primary">About</span>
-            </v-btn>
+            <nuxt-link to="/events">
+                <v-btn color='transparent' elevation='0' text>
+                    <span class="mr-2 text-primary">Events</span>
+                </v-btn> 
+            </nuxt-link>
+            <nuxt-link to="/why">
+                <v-btn color='transparent' elevation='0' text>
+                    <span class="mr-2 text-primary">Why TravelSMG</span>
+                </v-btn>
+            </nuxt-link>
+            <nuxt-link to="/about">
+                <v-btn color='transparent' elevation='0' text>
+                    <span class="mr-2 text-primary">About</span>
+                </v-btn>
+            </nuxt-link>
+            
+           
+           
         </v-card-text>
 
         <v-divider></v-divider>

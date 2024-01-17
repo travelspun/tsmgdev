@@ -30,8 +30,11 @@
         <v-row 
           align="center"
           no-gutters
+          cols='12'
         >
-          <h2 class='pa-2 ma-2'>TravelSMG by the Numbers</h2>
+          <v-col class='text-align-center'>
+            <h2 class='pa-2 ma-2 text-align-center' align='center'>TravelSMG by the Numbers</h2>
+          </v-col>
         </v-row>
         <v-row
           align="center"
